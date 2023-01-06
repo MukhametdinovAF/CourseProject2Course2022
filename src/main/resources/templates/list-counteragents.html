@@ -32,17 +32,17 @@ navigation">
 </nav>
 <div class="container">
     <hr/>
-    <a th:href="@{/addCounterAgentForm}" class="btn btn-primary">Add Counter Agent</a>
+    <a th:href="@{/addCounterAgentsForm}" class="btn btn-primary">Add Counter Agent</a>
     <br/><br/>
-    <table class="table table-bordered table-striped" id="studentTable">
+    <table class="table table-bordered table-striped" id="counterAgentsTable">
         <thead>
         <tr>
             <th>Date</th>
             <th>Client</th>
             <th>Size</th>
             <th>Resolution</th>
-            <th>ControllerModel</th>
-            <th>ConnectionType</th>
+            <th>Controller Model</th>
+            <th>Connection Type</th>
             <th>Warranty</th>
         </tr>
         </thead>
@@ -57,7 +57,7 @@ navigation">
             <td th:text="${counterAgent.warranty}" />
             <td>
                 <a th:href="@{/showUpdateForm(counterAgentId=${counterAgent.id})}" class="btn btninfo">Update</a>
-                <a th:href="@{/deleteStudent(counterAgentId=${counterAgent.id})}" class="btn btn-danger ml2">Delete</a>
+                <a th:href="@{/deleteCounterAgent(counterAgentId=${counterAgent.id})}" class="btn btn-danger ml2">Delete</a>
             </td>
         </tr>
         </tbody>

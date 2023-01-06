@@ -33,20 +33,15 @@ navigation">
     <h3>Add New Counter Agent</h3>
     <hr/>
     <form th:action="@{/saveCounterAgent}" th:object="${counteragent}" method="POST">
-        <input type="text" th:field="*{date}" class="form-control col-4 mb-4" placeholder="Enter
-Date"/>
+        <input type="text" th:field="*{date}" class="form-control col-4 mb-4" placeholder="Enter date"/>
         <input type="text" th:field="*{client}" class="form-control col-4 mb-4"
                placeholder="Enter name of client"/>
         <input type="text" th:field="*{size}" class="form-control col-4 mb-4"
                placeholder="Enter size of led panel"/>
-        <input type="text" th:field="*{resolution}" class="form-control col-4 mb-4" placeholder="Enter
-resolution of led panel"/>
-        <input type="text" th:field="*{controllerModel}" class="form-control col-4 mb-4" placeholder="Enter
-controller model"/>
-        <input type="text" th:field="*{connectionType}" class="form-control col-4 mb-4" placeholder="Enter
-connection type"/>
-        <input type="text" th:field="*{warranty}" class="form-control col-4 mb-4" placeholder="Enter
-warranty"/>
+        <input type="text" th:field="*{resolution}" class="form-control col-4 mb-4" placeholder="Enter resolution of led panel"/>
+        <input type="text" th:field="*{controllerModel}" class="form-control col-4 mb-4" placeholder="Enter controller model"/>
+        <input type="text" th:field="*{connectionType}" class="form-control col-4 mb-4" placeholder="Enter connection type"/>
+        <input type="text" th:field="*{warranty}" class="form-control col-4 mb-4" placeholder="Enter warranty"/>
         <button type="submit" class="btn btn-primary col-2">Save</button>
         <input type="hidden" th:field="*{id}"/>
     </form>

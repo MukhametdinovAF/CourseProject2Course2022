@@ -1,5 +1,6 @@
 package ru.mukhametdinov.courseproject.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.mukhametdinov.courseproject.dto.UserDto;
 import ru.mukhametdinov.courseproject.entity.User;
+import ru.mukhametdinov.courseproject.service.UserActionsService;
 import ru.mukhametdinov.courseproject.service.UserService;
 
 import javax.validation.Valid;
@@ -17,6 +19,8 @@ import java.util.List;
 public class SecurityController {
 
     private UserService userService;
+    @Autowired
+    private UserActionsService userActionsService;
 
     public SecurityController(UserService userService) {
         this.userService = userService;
@@ -36,6 +40,7 @@ public class SecurityController {
     public String showregistrationForm(Model model) {
         UserDto user = new UserDto();
         model.addAttribute("user", user);
+        userActionsService.savelog("Show registration form");
         return "register";
     }
 
@@ -50,6 +55,7 @@ public class SecurityController {
             return "/register";
         }
         userService.saveUser(userDto);
+        userActionsService.savelog("Registering a new user");
         return "redirect:/register?success";
     }
 
@@ -57,6 +63,7 @@ public class SecurityController {
     public String users(Model model) {
         List<UserDto> users = userService.findAllUsers();
         model.addAttribute("users", users);
+        userActionsService.savelog("Show all users");
         return "users";
     }
 

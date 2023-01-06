@@ -20,9 +20,12 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests().antMatchers("/register/**").permitAll()
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/register/**").permitAll()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/users").hasRole("ADMIN")
+                .antMatchers("/list").hasRole("ADMIN")
+                .antMatchers("/addCounterAgentsForm").hasRole("ADMIN")
                 .and()
                 .formLogin(
                         form -> form.loginPage("/login")

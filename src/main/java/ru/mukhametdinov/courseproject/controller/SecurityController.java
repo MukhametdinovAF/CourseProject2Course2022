@@ -37,7 +37,7 @@ public class SecurityController {
     }
 
     @GetMapping("/register")
-    public String showregistrationForm(Model model) {
+    public String showRegistrationForm(Model model) {
         UserDto user = new UserDto();
         model.addAttribute("user", user);
         userActionsService.savelog("Show registration form");
@@ -66,5 +66,4 @@ public class SecurityController {
         userActionsService.savelog("Show all users");
         return "users";
     }
-
 }

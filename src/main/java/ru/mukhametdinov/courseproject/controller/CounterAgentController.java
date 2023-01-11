@@ -28,7 +28,7 @@ public class CounterAgentController {
 
 
     @GetMapping("/list")
-    public ModelAndView gelAllCounterAgents() {
+    public ModelAndView getAllCounterAgents() {
         log.info("/list->connection");
         ModelAndView mav = new ModelAndView("list-counteragents");
         mav.addObject("counteragents", counterAgentRepository.findAll());
